@@ -1,0 +1,1148 @@
+/* =========================================
+   1. Root & Global Styles
+   ========================================= */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #213547;
+  background-color: #f8f9fa;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  font-weight: 500;
+  color: #0d6efd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0b5ed7;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 2.5em;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.8em;
+  font-weight: 600;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* =========================================
+   2. Navbar Customization
+   ========================================= */
+.navbar {
+  border-bottom: 3px solid #0d6efd;
+  background-color: #ffffff !important;
+  padding: 1rem 0;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar-brand {
+  transition: opacity 0.3s ease;
+}
+
+.navbar-brand:hover {
+  opacity: 0.9;
+}
+
+.navbar-brand-text {
+  color: #213547;
+  transition: color 0.3s ease;
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  color: #213547 !important;
+}
+
+.nav-link:hover {
+  color: #0d6efd !important;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #0d6efd;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 80%;
+}
+
+.wishlist-icon,
+.cart-icon,
+.theme-icon {
+  color: #213547 !important;
+  transition: color 0.3s ease;
+  font-size: 1.2rem;
+}
+
+/* Hamburger Menu Icon - FIXED */
+.navbar-toggler {
+  border: none !important;
+  padding: 0.5rem !important;
+  box-shadow: none !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(33, 53, 71, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  background-size: 100% 100% !important;
+  width: 1.5em !important;
+  height: 1.5em !important;
+}
+
+/* Icon Group - Horizontal Alignment */
+.navbar-nav.flex-row {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 1rem !important;
+  align-items: center !important;
+}
+
+.navbar-nav.flex-row .nav-item {
+  display: inline-block !important;
+}
+
+.navbar-nav.flex-row .nav-link {
+  padding: 0.5rem !important;
+}
+
+/* Dark Mode Navbar */
+body.dark-mode .navbar {
+  background-color: #16213e !important;
+  border-bottom-color: #0d6efd;
+}
+
+body.dark-mode .navbar-brand-text {
+  color: #eaeaea !important;
+}
+
+body.dark-mode .navbar-brand-text .text-primary {
+  color: #0d6efd !important;
+}
+
+body.dark-mode .nav-link {
+  color: #eaeaea !important;
+}
+
+body.dark-mode .nav-link:hover {
+  color: #0d6efd !important;
+}
+
+body.dark-mode .wishlist-icon,
+body.dark-mode .cart-icon,
+body.dark-mode .theme-icon {
+  color: #eaeaea !important;
+}
+
+body.dark-mode .wishlist-icon:hover,
+body.dark-mode .cart-icon:hover,
+body.dark-mode .theme-icon:hover {
+  color: #0d6efd !important;
+}
+
+body.dark-mode .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(234, 234, 234, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Mobile Responsive Fixes */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: inherit;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+  }
+
+  body.dark-mode .navbar-collapse {
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-nav {
+    text-align: center !important;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 0.5rem 0 !important;
+  }
+
+  /* Icon row stays horizontal on mobile */
+  .navbar-nav.flex-row {
+    justify-content: center !important;
+    margin-top: 1rem !important;
+  }
+
+  .navbar-brand span {
+    font-size: 1rem;
+  }
+  
+  .navbar-brand img {
+    height: 40px !important;
+  }
+
+  .navbar-toggler {
+    padding: 0.25rem 0.5rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-brand span {
+    display: none;
+  }
+  
+  .navbar-brand img {
+    height: 35px !important;
+    margin-right: 0 !important;
+  }
+
+  .navbar-nav.flex-row {
+    gap: 1.5rem !important;
+  }
+
+  .wishlist-icon,
+  .cart-icon,
+  .theme-icon {
+    font-size: 1.3rem !important;
+  }
+
+  .form-control {
+    font-size: 0.9rem !important;
+  }
+
+  .btn-primary {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.9em !important;
+  }
+}
+
+/* =========================================
+   3. Footer Customization
+   ========================================= */
+footer {
+  margin-top: auto;
+  background-color: #1a1a2e !important;
+  border-top: 3px solid #0d6efd;
+}
+
+footer h5 {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+footer a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+footer a:hover {
+  color: #ffffff;
+  padding-left: 5px;
+}
+
+footer .fab {
+  transition: transform 0.3s ease;
+}
+
+footer .fab:hover {
+  transform: translateY(-3px);
+}
+
+.hover-opacity-100:hover {
+  opacity: 1 !important;
+}
+
+/* Footer - Email Text Fix */
+.footer-contact li {
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.email-text {
+  word-break: break-all;
+  font-size: 0.85rem;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* =========================================
+   4. Product Card Styles
+   ========================================= */
+.product-img-wrapper {
+  overflow: hidden;
+  position: relative;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 10px;
+}
+
+.product-img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+  max-width: 180px;
+  max-height: 180px;
+}
+
+.product-img-wrapper:hover .product-img {
+  transform: scale(1.1);
+}
+
+.sale-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  z-index: 10;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.card {
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffff;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+  transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+  color: #0d6efd;
+  border-color: #0d6efd;
+  border-radius: 8px;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.btn-success {
+  background-color: #198754;
+  border-color: #198754;
+  border-radius: 8px;
+}
+
+.btn-success:hover {
+  background-color: #157347;
+  border-color: #146c43;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  border-radius: 8px;
+}
+
+.btn-danger:hover {
+  background-color: #bb2d3b;
+  border-color: #b02a37;
+}
+
+/* =========================================
+   5. Wishlist & Compare Buttons
+   ========================================= */
+.wishlist-btn {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  background: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.wishlist-btn:hover {
+  background: #dc3545;
+  color: white;
+  transform: scale(1.1);
+}
+
+.wishlist-btn.active {
+  background: #dc3545;
+  color: white;
+}
+
+.compare-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.compare-btn:hover {
+  background: #0d6efd;
+  color: white;
+  transform: scale(1.1);
+}
+
+.compare-btn.active {
+  background: #0d6efd;
+  color: white;
+}
+
+/* =========================================
+   6. Sidebar & Filters
+   ========================================= */
+.cursor-pointer {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.cursor-pointer:hover {
+  background-color: #f8f9fa;
+}
+
+.list-group-item {
+  border: none;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.list-group-item.active {
+  background-color: #212529;
+  border-color: #212529;
+}
+
+.list-group-item:hover {
+  background-color: #e9ecef;
+  padding-left: 1.5rem;
+}
+
+.form-range::-webkit-slider-thumb {
+  background: #0d6efd;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.form-range::-moz-range-thumb {
+  background: #0d6efd;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  padding: 0.6rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.form-control::placeholder {
+  color: #6c757d;
+}
+
+.form-select {
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  padding: 0.6rem 1rem;
+}
+
+.form-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+input[type="text"].form-control {
+  border-radius: 20px;
+  padding-left: 15px;
+}
+
+/* =========================================
+   7. Skeleton Loading UI
+   ========================================= */
+.skeleton-image {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 8px;
+}
+
+.skeleton-text {
+  height: 16px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.skeleton-title {
+  width: 80%;
+  height: 20px;
+}
+
+.skeleton-stars {
+  width: 60%;
+}
+
+.skeleton-price {
+  width: 50%;
+  height: 24px;
+}
+
+.skeleton-button {
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* =========================================
+   8. Dark Mode Styles
+   ========================================= */
+body.dark-mode {
+  background-color: #1a1a2e !important;
+  color: #eaeaea;
+}
+
+body.dark-mode .navbar {
+  background-color: #16213e !important;
+  border-bottom-color: #0d6efd;
+}
+
+body.dark-mode .navbar-brand-text {
+  color: #eaeaea !important;
+}
+
+body.dark-mode .navbar-brand-text .text-primary {
+  color: #0d6efd !important;
+}
+
+body.dark-mode .nav-link {
+  color: #eaeaea !important;
+}
+
+body.dark-mode .nav-link:hover {
+  color: #0d6efd !important;
+}
+
+body.dark-mode .wishlist-icon,
+body.dark-mode .cart-icon,
+body.dark-mode .theme-icon {
+  color: #eaeaea !important;
+}
+
+body.dark-mode .wishlist-icon:hover,
+body.dark-mode .cart-icon:hover,
+body.dark-mode .theme-icon:hover {
+  color: #0d6efd !important;
+}
+
+body.dark-mode .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(234, 234, 234, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+body.dark-mode .card {
+  background-color: #16213e;
+  border-color: #0f3460;
+  color: #eaeaea;
+}
+
+body.dark-mode .card-title {
+  color: #eaeaea;
+}
+
+body.dark-mode .card-body {
+  color: #eaeaea;
+}
+
+body.dark-mode .form-control {
+  background-color: #0f3460;
+  border-color: #16213e;
+  color: #eaeaea;
+}
+
+body.dark-mode .form-control::placeholder {
+  color: #a0a0a0;
+}
+
+body.dark-mode .form-select {
+  background-color: #0f3460;
+  border-color: #16213e;
+  color: #eaeaea;
+}
+
+body.dark-mode .list-group-item {
+  background-color: #16213e;
+  border-color: #0f3460;
+  color: #eaeaea;
+}
+
+body.dark-mode .list-group-item:hover {
+  background-color: #0f3460;
+}
+
+body.dark-mode footer {
+  background-color: #0f3460 !important;
+}
+
+body.dark-mode .wishlist-btn,
+body.dark-mode .compare-btn {
+  background: #0f3460;
+  color: #eaeaea;
+}
+
+body.dark-mode .product-img-wrapper {
+  background: #0f3460;
+}
+
+body.dark-mode .table {
+  color: #eaeaea;
+  background-color: #16213e;
+}
+
+body.dark-mode .table-bordered {
+  border-color: #0f3460;
+}
+
+body.dark-mode .table-light {
+  background-color: #0f3460 !important;
+  color: #eaeaea;
+}
+
+body.dark-mode .modal-content {
+  background-color: #16213e;
+  color: #eaeaea;
+}
+
+body.dark-mode .modal-header {
+  border-bottom-color: #0f3460;
+}
+
+body.dark-mode .modal-footer {
+  border-top-color: #0f3460;
+}
+
+body.dark-mode .text-muted {
+  color: #a0a0a0 !important;
+}
+
+body.dark-mode .badge {
+  color: #ffffff;
+}
+
+/* =========================================
+   9. Policies Page - Dark Mode Fix
+   ========================================= */
+body.dark-mode .policies-card {
+  background-color: #16213e !important;
+  border-color: #0f3460 !important;
+}
+
+body.dark-mode .policies-text {
+  color: #eaeaea !important;
+}
+
+body.dark-mode .policies-heading {
+  color: #eaeaea !important;
+}
+
+body.dark-mode hr {
+  border-color: #0f3460 !important;
+  opacity: 0.5;
+}
+
+body.dark-mode .alert-info {
+  background-color: #0f3460 !important;
+  border-color: #16213e !important;
+  color: #eaeaea !important;
+}
+
+body.dark-mode .lead {
+  color: #eaeaea !important;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #eaeaea !important;
+}
+
+body.dark-mode .display-5 {
+  color: #eaeaea !important;
+}
+
+/* =========================================
+   10. Contact Page - Dark Mode Fix
+   ========================================= */
+body.dark-mode .contact-card {
+  background-color: #16213e !important;
+  border-color: #0f3460 !important;
+}
+
+body.dark-mode .contact-title {
+  color: #eaeaea !important;
+}
+
+body.dark-mode .contact-text {
+  color: #eaeaea !important;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+body.dark-mode .contact-label {
+  color: #eaeaea !important;
+  font-weight: 500;
+}
+
+body.dark-mode .contact-input {
+  background-color: #0f3460 !important;
+  border-color: #16213e !important;
+  color: #eaeaea !important;
+}
+
+body.dark-mode .contact-input::placeholder {
+  color: #a0a0a0 !important;
+}
+
+body.dark-mode .contact-heading {
+  color: #eaeaea !important;
+}
+
+body.dark-mode .contact-info-item {
+  color: #eaeaea !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+body.dark-mode .contact-info-item p {
+  word-break: break-all;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+body.dark-mode .contact-info-item h5 {
+  color: #eaeaea !important;
+  margin-bottom: 0.5rem;
+}
+
+body.dark-mode .alert-success {
+  background-color: #0f3460 !important;
+  border-color: #198754 !important;
+  color: #eaeaea !important;
+}
+
+body.dark-mode .form-label {
+  color: #eaeaea !important;
+}
+
+/* Contact Info - Email Fix (Light Mode Too) */
+.contact-info-item {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.contact-info-item p {
+  word-break: break-all;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.contact-info-item h5 {
+  margin-bottom: 0.5rem;
+}
+
+/* Dark Mode Footer Text Fix */
+body.dark-mode .footer-contact li {
+  color: #eaeaea !important;
+}
+
+body.dark-mode .footer-text {
+  color: #a0a0a0 !important;
+}
+
+body.dark-mode .email-text {
+  color: #eaeaea !important;
+}
+
+/* =========================================
+   11. Custom Scrollbar
+   ========================================= */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0d6efd;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0b5ed7;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+  background: #0f3460;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #16213e;
+}
+
+/* =========================================
+   12. Carousel & Hero Section
+   ========================================= */
+.carousel-inner {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.carousel-indicators button {
+  background-color: #0d6efd;
+}
+
+/* =========================================
+   13. Badge & Notification Styles
+   ========================================= */
+.badge {
+  font-weight: 500;
+  padding: 0.35em 0.65em;
+}
+
+.bg-danger {
+  background-color: #dc3545 !important;
+}
+
+.bg-primary {
+  background-color: #0d6efd !important;
+}
+
+.bg-success {
+  background-color: #198754 !important;
+}
+
+.bg-warning {
+  background-color: #ffc107 !important;
+  color: #000 !important;
+}
+
+/* =========================================
+   14. Utility Classes
+   ========================================= */
+.shadow-sm {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
+}
+
+.shadow {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+.rounded-pill {
+  border-radius: 50rem !important;
+}
+
+.text-primary {
+  color: #0d6efd !important;
+}
+
+.text-danger {
+  color: #dc3545 !important;
+}
+
+.text-success {
+  color: #198754 !important;
+}
+
+.text-warning {
+  color: #ffc107 !important;
+}
+
+.text-muted {
+  color: #6c757d !important;
+}
+
+.fw-bold {
+  font-weight: 700 !important;
+}
+
+.fw-medium {
+  font-weight: 500 !important;
+}
+
+/* =========================================
+   15. Loading Spinner
+   ========================================= */
+.spinner-border {
+  width: 2rem;
+  height: 2rem;
+  border-width: 0.25em;
+}
+
+/* =========================================
+   16. Responsive Adjustments
+   ========================================= */
+@media (max-width: 768px) {
+  .navbar-brand span {
+    font-size: 1rem;
+  }
+  
+  .navbar-brand img {
+    height: 40px !important;
+  }
+  
+  h1 {
+    font-size: 2em;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+  }
+  
+  .product-img-wrapper {
+    height: 180px;
+  }
+  
+  .carousel-item img {
+    height: 250px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-brand span {
+    display: none;
+  }
+  
+  .product-img-wrapper {
+    height: 150px;
+  }
+  
+  .btn-primary {
+    padding: 0.5rem 1rem;
+    font-size: 0.9em;
+  }
+}
+
+/* =========================================
+   17. Animation Classes
+   ========================================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+/* =========================================
+   18. Table Styles (For Comparison Page)
+   ========================================= */
+.table {
+  margin-bottom: 0;
+}
+
+.table-bordered {
+  border: 1px solid #dee2e6;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #dee2e6;
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+.table-light {
+  background-color: #f8f9fa;
+}
+
+.table-responsive {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
