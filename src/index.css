@@ -916,7 +916,109 @@ body.dark-mode .email-text {
 }
 
 /* =========================================
-   11. Custom Scrollbar
+   11. Cart Page - Mobile Responsive Fix (NEW)
+   ========================================= */
+.cart-item {
+  transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 10px;
+  margin: -10px;
+}
+
+body.dark-mode .cart-item:hover {
+  background-color: #0f3460;
+}
+
+.cart-item-img {
+  border-radius: 8px;
+  max-height: 100px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.cart-item-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.25rem;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .cart-item-img {
+    max-height: 80px;
+  }
+  
+  .cart-item-title {
+    font-size: 0.9rem;
+  }
+  
+  .input-group-sm .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .cart-empty-card {
+    padding: 2rem 1rem;
+  }
+  
+  .sticky-top {
+    position: relative !important;
+    top: 0 !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .cart-item-img {
+    max-height: 70px;
+  }
+  
+  .cart-item-title {
+    font-size: 0.85rem;
+  }
+  
+  .btn-sm {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.8rem;
+  }
+  
+  .cart-item .col-4,
+  .cart-item .col-8,
+  .cart-item .col-6 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* Dark Mode Cart */
+body.dark-mode .cart-item {
+  border-bottom-color: #0f3460 !important;
+}
+
+body.dark-mode .cart-item:hover {
+  background-color: #0f3460;
+}
+
+body.dark-mode .cart-item-title {
+  color: #eaeaea;
+}
+
+body.dark-mode .card {
+  background-color: #16213e;
+  border-color: #0f3460;
+}
+
+body.dark-mode .card-header {
+  background-color: #0f3460 !important;
+  border-bottom-color: #16213e;
+}
+
+/* =========================================
+   12. Custom Scrollbar
    ========================================= */
 ::-webkit-scrollbar {
   width: 10px;
@@ -948,7 +1050,7 @@ body.dark-mode ::-webkit-scrollbar-thumb:hover {
 }
 
 /* =========================================
-   12. Carousel & Hero Section
+   13. Carousel & Hero Section
    ========================================= */
 .carousel-inner {
   border-radius: 12px;
@@ -968,7 +1070,7 @@ body.dark-mode ::-webkit-scrollbar-thumb:hover {
 }
 
 /* =========================================
-   13. Badge & Notification Styles
+   14. Badge & Notification Styles
    ========================================= */
 .badge {
   font-weight: 500;
@@ -993,7 +1095,7 @@ body.dark-mode ::-webkit-scrollbar-thumb:hover {
 }
 
 /* =========================================
-   14. Utility Classes
+   15. Utility Classes
    ========================================= */
 .shadow-sm {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
@@ -1036,7 +1138,7 @@ body.dark-mode ::-webkit-scrollbar-thumb:hover {
 }
 
 /* =========================================
-   15. Loading Spinner
+   16. Loading Spinner
    ========================================= */
 .spinner-border {
   width: 2rem;
@@ -1045,7 +1147,7 @@ body.dark-mode ::-webkit-scrollbar-thumb:hover {
 }
 
 /* =========================================
-   16. Responsive Adjustments
+   17. Responsive Adjustments
    ========================================= */
 @media (max-width: 768px) {
   .navbar-brand span {
@@ -1089,7 +1191,7 @@ body.dark-mode ::-webkit-scrollbar-thumb:hover {
 }
 
 /* =========================================
-   17. Animation Classes
+   18. Animation Classes
    ========================================= */
 @keyframes fadeIn {
   from {
@@ -1120,7 +1222,7 @@ body.dark-mode ::-webkit-scrollbar-thumb:hover {
 }
 
 /* =========================================
-   18. Table Styles (For Comparison Page)
+   19. Table Styles (For Comparison Page)
    ========================================= */
 .table {
   margin-bottom: 0;
