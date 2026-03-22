@@ -104,8 +104,8 @@ const Navbar = () => {
             </li>
           </ul>
 
-          {/* Search Form */}
-          <form className="d-flex ms-3" role="search">
+          {/* Search Form - Hidden on Mobile */}
+          <form className="d-none d-lg-flex ms-3" role="search">
             <input
               className="form-control me-2 rounded-pill"
               type="search"
