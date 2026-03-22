@@ -8,12 +8,17 @@ export const CartProvider = ({ children }) => {
   // Add to Cart
   const addToCart = (product) => {
     setCart((prevCart) => {
-      const existing = prevCart.find((item) => item.id === product.id);
-      if (existing) {
+      const existingItem = prevCart.find((item) => item.id === product.id);
+      
+      if (existingItem) {
+        // Item exists, increase quantity
         return prevCart.map((item) =>
-          item.id === product.id ? { ...item, qty: item.qty + 1 } : item
+          item.id === product.id
+            ? { ...item, qty: item.qty + 1 }
+            : item
         );
       } else {
+        // New item, add with qty 1
         return [...prevCart, { ...product, qty: 1 }];
       }
     });
@@ -24,34 +29,35 @@ export const CartProvider = ({ children }) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   };
 
-  // Increase Quantity
-  const increaseQty = (id) => {
+  // Update Quantity
+  const updateQuantity = (id, newQty) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
-        item.id === id ? { ...item, qty: item.qty + 1 } : item
+        item.id === id ? { ...item, qty: newQty } : item
       )
     );
   };
 
-  // Decrease Quantity
-  const decreaseQty = (id) => {
-    setCart((prevCart) =>
-      prevCart.map((item) =>
-        item.id === id && item.qty > 1
-          ? { ...item, qty: item.qty - 1 }
-          : item
-      )
-    );
-  };
-
-  // ✅ NEW: Clear Cart (Add this)
+  // Clear Cart
   const clearCart = () => {
     setCart([]);
   };
 
+  // Get Cart Count
+  const getCartCount = () => {
+    return cart.reduce((total, item) => total + item.qty, 0);
+  };
+
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, increaseQty, decreaseQty, clearCart }}
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        clearCart,
+        getCartCount,
+      }}
     >
       {children}
     </CartContext.Provider>

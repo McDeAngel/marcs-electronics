@@ -16,9 +16,24 @@ const Cart = () => {
     return cart.reduce((total, item) => total + item.price * item.qty, 0);
   };
 
-  const handleQuantityChange = (id, newQty) => {
-    if (newQty >= 1) {
-      updateQuantity(id, newQty);
+  const handleIncrement = (id) => {
+    const item = cart.find((item) => item.id === id);
+    if (item) {
+      updateQuantity(id, item.qty + 1);
+    }
+  };
+
+  const handleDecrement = (id) => {
+    const item = cart.find((item) => item.id === id);
+    if (item && item.qty > 1) {
+      updateQuantity(id, item.qty - 1);
+    }
+  };
+
+  const handleQuantityInput = (id, value) => {
+    const qty = parseInt(value);
+    if (!isNaN(qty) && qty >= 1) {
+      updateQuantity(id, qty);
     }
   };
 
@@ -83,7 +98,8 @@ const Cart = () => {
                           <button
                             className="btn btn-outline-secondary"
                             type="button"
-                            onClick={() => handleQuantityChange(item.id, item.qty - 1)}
+                            onClick={() => handleDecrement(item.id)}
+                            disabled={item.qty <= 1}
                           >
                             <i className="fas fa-minus"></i>
                           </button>
@@ -91,14 +107,14 @@ const Cart = () => {
                             type="number"
                             className="form-control text-center"
                             value={item.qty}
-                            onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
+                            onChange={(e) => handleQuantityInput(item.id, e.target.value)}
                             min="1"
                             style={{ maxWidth: '60px' }}
                           />
                           <button
                             className="btn btn-outline-secondary"
                             type="button"
-                            onClick={() => handleQuantityChange(item.id, item.qty + 1)}
+                            onClick={() => handleIncrement(item.id)}
                           >
                             <i className="fas fa-plus"></i>
                           </button>
